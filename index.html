@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>Route Maker</title>
+    <meta name="viewport" content="user-scalable=no">
+    
+    
+    <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css'>
+<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css'>
+<link rel='stylesheet prefetch' href='https://code.jquery.com/ui/1.11.3/jquery-ui.min.js'>
+
+        <link rel="stylesheet" href="css/style.css">
+
+    
+    
+    
+  </head>
+
+  <body>
+
+    <div class="map"></div>
+<div class="circles-lines-container"></div>
+<div class="zoom-in zooms z5" onclick="zoomIn()">+</div>
+<div class="zoom-out zooms z5" onclick="zoomOut()">-</div>
+<div class="edit-mode edit-mode-on" onclick="toggleEdit()">Log Off</div>
+<div class="departure-destination z3">
+  <div class="start">
+    <label class="start-label" for="start-input">Start</label>
+    <input type="text" id="start-input" onchange="showRoute()" placeholder="Where to begin?">
+  </div>
+  <div class="destination">
+    <label class="destination-label" for="destination-input">Destination</label>
+    <input type="text" id="destination-input" onchange="showRoute()" placeholder="Destination?">
+  </div>
+</div>
+<div class="center-panel">
+  <div class="map-selection">
+    <div class="map-selection-buttons z15">
+      <div class="map-button map-selected" onclick="selectMap(this)">1</div>
+      <div class="map-button" onclick="selectMap(this)">2</div>
+      <div class="map-button" onclick="selectMap(this)">3</div>
+      <div class="map-button" onclick="selectMap(this)">4</div>
+      <div class="map-button" onclick="selectMap(this)">5</div>
+      <div class="map-button" onclick="selectMap(this)">6</div>
+      <div class="map-button" onclick="selectMap(this)">7</div>
+      <div class="map-button" onclick="selectMap(this)">8</div>
+    </div>
+  </div>
+  <div class="map-name" contenteditable="true">1st Floor</div>
+</div>
+<div class="right-panel z5">
+  <div class="new-circle z5">New Circle
+    <div class="move-connect" onclick="toggleConnect();">Connect Circles</div>
+  </div>
+  <div class="remove-circle z5">Remove Circle
+    <div class="icon"><i class="fa fa-trash fa-5x"></i></div>
+  </div>
+  <div class="edit-circle z5">
+    <div>Edit Circle</div>
+    <input type="text" id="name" onchange="updateName(this);" value="Hello">
+    <div id="line-ends"></div>
+  </div>
+  <div class="save-button z5" onclick="saveData();">Save</div>
+  <div class="load-button z5" onclick="loadData();">Load</div>
+  <div class="circle-size-value">Circle Size
+    <input type="text" id="circle-size-value-input" onchange="updateCircleSize()" value="60">
+  </div>
+</div>
+<div class="bottom-panel z4">
+  <div class="map-url z5">
+    <label for="map-url-input">Map Image</label>
+    <input type="text" id="map-url-input" onchange="updateImage()" value="https://www.dropbox.com/s/580lhbwgejm5rwc/science.jpeg?raw=1">
+  </div>
+</div>
+    <script src='https://code.jquery.com/jquery-2.1.4.min.js'></script>
+<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js'></script>
+<script src='https://www.parsecdn.com/js/parse-1.6.7.min.js'></script>
+
+        <script src="js/index.js"></script>
+
+    
+    
+    
+  </body>
+</html>
